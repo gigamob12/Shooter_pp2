@@ -16,16 +16,18 @@ public class enemyAI : MonoBehaviour, IDamagable
     [SerializeField] int viewAngle;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int roamRadius;
+    [SerializeField] float grenadeCooldownTime;
 
 
     [Header("Enemy Weapon Stats")]
     [Header("-----------------------------------")]
     [SerializeField] float shootRate;
+    [SerializeField] float grenadeTossRate;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shootPosition;
+    [SerializeField] GameObject grenade;
 
-
-
+    bool canThrowGrenade;
     bool canShoot;
     bool playerInRange;
     Vector3 playerDir;
@@ -98,9 +100,18 @@ public class enemyAI : MonoBehaviour, IDamagable
         {
             Debug.DrawRay(transform.position, playerDir);
 
+            if (Time.time > grenadeTossRate)
+            {
+                if (hit.collider.CompareTag("Player") && canShoot && angle <= viewAngle)
+                {
+                    StartCoroutine(shootGrenade());
+                    grenadeTossRate = Time.time + grenadeCooldownTime;
+                }
+
+            }
+
             if (hit.collider.CompareTag("Player") && canShoot && angle <= viewAngle)
                 StartCoroutine(shoot());
-
         }
     }
 
@@ -109,6 +120,7 @@ public class enemyAI : MonoBehaviour, IDamagable
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            canThrowGrenade = true;
             canShoot = true;
             agent.stoppingDistance = stoppingDisOrig;
         }
@@ -133,8 +145,7 @@ public class enemyAI : MonoBehaviour, IDamagable
         if (hp <= 0)
         {
             gamemanager.instance.checkEnemyKills();
-
-            anim.enabled = false;
+            agent.enabled = false;
             anim.SetBool("Dead", true);
 
             foreach(Collider col in GetComponents<Collider>())
@@ -161,4 +172,13 @@ public class enemyAI : MonoBehaviour, IDamagable
         canShoot = true;
     }
 
+    IEnumerator shootGrenade()
+    {
+        canThrowGrenade = false;
+        anim.SetTrigger("Grenade");
+        Instantiate(grenade, shootPosition.transform.position, grenade.transform.rotation);
+        yield return new WaitForSeconds(grenadeTossRate);
+        canThrowGrenade = true;
+
+    }
 }

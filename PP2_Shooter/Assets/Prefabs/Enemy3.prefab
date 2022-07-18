@@ -247,9 +247,12 @@ MonoBehaviour:
   viewAngle: 90
   playerFaceSpeed: 3
   roamRadius: 6
+  grenadeCooldownTime: 5
   shootRate: 1
+  grenadeTossRate: 1
   bullet: {fileID: 6997479035444499268, guid: a65ace2ee226c7241b4cf2988d20c18c, type: 3}
   shootPosition: {fileID: 5190302581433696186}
+  grenade: {fileID: 2094192647477228935, guid: 046baa045daf60d44b4ad2a598eb1810, type: 3}
 --- !u!195 &5190302581330880176
 NavMeshAgent:
   m_ObjectHideFlags: 0
