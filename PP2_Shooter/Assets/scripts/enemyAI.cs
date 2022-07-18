@@ -22,9 +22,9 @@ public class enemyAI : MonoBehaviour, IDamagable
     [Header("Enemy Weapon Stats")]
     [Header("-----------------------------------")]
     [SerializeField] float shootRate;
-    [SerializeField] float grenadeTossRate;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shootPosition;
+    [SerializeField] float grenadeTossRate;
     [SerializeField] GameObject grenade;
 
     bool canThrowGrenade;
@@ -130,6 +130,8 @@ public class enemyAI : MonoBehaviour, IDamagable
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            canThrowGrenade = false;
+            canShoot = false;
             agent.stoppingDistance = 0;
         }
     }
