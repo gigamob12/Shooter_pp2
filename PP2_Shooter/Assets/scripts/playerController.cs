@@ -102,7 +102,7 @@ public class playerController : MonoBehaviour, IDamagable
             isSprinting = true;
             playerSpeed = playerSpeed * sprintMulti;
         }
-            else if(Input.GetButtonUp("Sprint"))
+        else if(Input.GetButtonUp("Sprint"))
         {
             isSprinting = false;
             playerSpeed = playerSpeedOrig;
