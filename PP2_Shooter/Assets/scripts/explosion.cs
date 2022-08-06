@@ -5,21 +5,24 @@ using UnityEngine;
 public class explosion : MonoBehaviour
 {
     [SerializeField] int damage;
+    [SerializeField] int explosionKnockBack;
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.isTrigger)
         {
-            gamemanager.instance.playerScript.pushback = (gamemanager.instance.player.transform.position - transform.position) * damage;
             if (other.GetComponent<IDamagable>() != null)
             {
+                if (other.CompareTag("Player"))
+                {
+                    gamemanager.instance.playerScript.pushback = (gamemanager.instance.player.transform.position - transform.position) * explosionKnockBack;
+
+                }
                 IDamagable isDamagable = other.GetComponent<IDamagable>();
                 isDamagable.takeDamage(damage);
 
             }
         }
-        
+
     }
-
-
 }

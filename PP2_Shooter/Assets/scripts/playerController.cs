@@ -121,13 +121,14 @@ public class playerController : MonoBehaviour, IDamagable
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit))
             {
                 Instantiate(hitEffectSpark, hit.point, hitEffectSpark.transform.rotation);
-                IDamagable isDamagable = hit.collider.GetComponent<IDamagable>();
 
                 if (hit.collider.GetComponent<IDamagable>()!= null)
                 {
+                    IDamagable isDamagable = hit.collider.GetComponent<IDamagable>();
+
                     if (hit.collider is SphereCollider)
                     {
-                        isDamagable.takeDamage(10000);
+                        isDamagable.takeDamage(100);
                     }
                     else
                     {

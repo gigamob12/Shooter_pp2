@@ -83,7 +83,6 @@ public class gamemanager : MonoBehaviour
     public void checkEnemyKills()
     {
         enemiesKilled++;
-        enemyDead.text = enemiesKilled.ToString("F0");
         if (enemiesKilled >= enemyKillGoal)
         {
             //show win game popup
@@ -110,10 +109,5 @@ public class gamemanager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void updateEnemyNumber()
-    {
-        enemyKillGoal++;
-        enemyTotal.text = enemyKillGoal.ToString("F0");
-    }
 
 }
