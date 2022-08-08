@@ -352,6 +352,7 @@
 "Assets/scripts/bullet.cs"
 "Assets/scripts/buttonFuctions.cs"
 "Assets/scripts/camera.cs"
+"Assets/scripts/droneAI.cs"
 "Assets/scripts/enemyAI.cs"
 "Assets/scripts/enemyAI2.cs"
 "Assets/scripts/explosion.cs"

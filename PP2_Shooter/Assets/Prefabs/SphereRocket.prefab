@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3726273843049715748}
   - component: {fileID: 8838292136398663684}
   - component: {fileID: 1586658797690673297}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SphereRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
