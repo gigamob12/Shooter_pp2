@@ -359,6 +359,7 @@
 "Assets/scripts/gamemanager.cs"
 "Assets/scripts/grenade.cs"
 "Assets/scripts/IDamagable.cs"
+"Assets/scripts/invisEnemyAI.cs"
 "Assets/scripts/landmine.cs"
 "Assets/scripts/playerController.cs"
 "Assets/scripts/rocket.cs"

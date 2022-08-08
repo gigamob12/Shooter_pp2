@@ -117,7 +117,7 @@ public class enemyAI : MonoBehaviour, IDamagable
         hp -= dmg;
         playerInRange = true;
         anim.SetTrigger("Damage");
-        StartCoroutine(flashColor());
+        //StartCoroutine(flashColor());
         if (hp <= 0)
         {
             gamemanager.instance.checkEnemyKills();
