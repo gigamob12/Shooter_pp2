@@ -16,10 +16,15 @@ public class explosion : MonoBehaviour
                 if (other.CompareTag("Player"))
                 {
                     gamemanager.instance.playerScript.pushback = (gamemanager.instance.player.transform.position - transform.position) * explosionKnockBack;
-
+                    IDamagable isDamagable = other.GetComponent<IDamagable>();
+                    isDamagable.takeDamage(damage);
+                    //if (!other.CompareTag("player"))
+                    //{
+                    //    isDamagable = other.GetComponent<IDamagable>();
+                    //    isDamagable.takeDamage(damage / 2);
+                    //}
                 }
-                IDamagable isDamagable = other.GetComponent<IDamagable>();
-                isDamagable.takeDamage(damage);
+               
 
             }
         }

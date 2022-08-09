@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 6240834580256208934}
   - component: {fileID: 6240834580256208929}
   - component: {fileID: 6240834580256208933}
-  - component: {fileID: 6240834580256208928}
   - component: {fileID: 6240834580256208931}
   - component: {fileID: 6240834580256208930}
   - component: {fileID: 6240834580256208989}
-  - component: {fileID: 6240834580256208932}
+  - component: {fileID: 6648943463065557979}
   m_Layer: 6
   m_Name: Drone
   m_TagString: Untagged
@@ -32,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6240834580256208991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.83, z: -11.22}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.41784, y: 0.41355002, z: 0.40362}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -112,19 +111,6 @@ MonoBehaviour:
   shootRate: 3
   bullet: {fileID: 7280421206675279168, guid: 836f2bb5e8fcd6e42b088993c5bb3cda, type: 3}
   shootPosition: {fileID: 6240834580613651134}
---- !u!135 &6240834580256208928
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6240834580256208991}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6240834580256208931
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -176,18 +162,19 @@ NavMeshAgent:
   m_BaseOffset: 7
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!135 &6240834580256208932
-SphereCollider:
+--- !u!136 &6648943463065557979
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6240834580256208991}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
+  m_Height: 0.99999994
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6240834580613651134
 GameObject:
